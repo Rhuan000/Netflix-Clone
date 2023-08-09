@@ -1,24 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { Routes, Route, Outlet} from 'react-router-dom';
+import { Home } from './routes/home/home.component';
+import { Login } from './routes/login/login.component';
+import { Browser } from './routes/browser/browser.component';
+//https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v 
+//https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices.m4v
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/login' element={<Login />}/>
+        <Route path='browser' element={<Browser />}/>
+    </Routes>
+    
   );
 }
 
