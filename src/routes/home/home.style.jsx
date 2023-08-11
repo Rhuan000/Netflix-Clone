@@ -10,8 +10,8 @@ export const HomeBackground = styled.div`
     position: absolute;
     color: white;
     height: 700px;
-    margin: auto;
-    min-width: 115vw;
+    align-self: center;
+    min-width: 100vw;
     
     background-image: url(${backgroundImage});
 
@@ -19,8 +19,9 @@ export const HomeBackground = styled.div`
      The solution to Zoom that i foun was change the unit for 125em to be relative at the element size, i couldn't change the X axis without lose the center. but i could change the Y, and i did.*/
     background-repeat: no-repeat;
     background-position-x: center;
-    background-position-y:  center;
-    background-size: cover;
+    background-position-y:  -210px;
+    background-size: 104em;
+    
 `;
 
      

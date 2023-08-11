@@ -7,7 +7,7 @@ export const ContentDivStyled = styled.div`
     display: flex;
     box-sizing: border-box;
     width: 64.3rem;
-    height: 23.85rem;
+    min-height: 23.85rem;
     margin: auto;
     justify-content: center;
     align-items: center;
