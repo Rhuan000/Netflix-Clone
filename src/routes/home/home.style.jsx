@@ -8,10 +8,11 @@ import { ReactComponent as LogoSVG } from "../../logo.svg"
 
 export const HomeBackground = styled.div`
     position: absolute;
+    left: -8%;
     color: white;
     height: 700px;
-    align-self: center;
-    min-width: 100vw;
+    
+    min-width: 115vw;
     
     background-image: url(${backgroundImage});
 
