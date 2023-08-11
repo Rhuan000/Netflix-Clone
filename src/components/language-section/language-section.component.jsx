@@ -6,7 +6,7 @@ export function LanguageSection(){
             
             <Select name="choices" onChange={''} value={'a'}>
                 <option value="">Português</option>
-                <option value="option1">English<AiFillCaretDown/></option>
+                <option value="option1">English</option>
             </Select>
         </div>
     );

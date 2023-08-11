@@ -12,7 +12,7 @@ export const SignatureStyled = styled.form`
         text-align: left;
         font-weight: 400;
         margin-left: -3.3rem;
-        font-size: 1.1rem;
+        font-size: 1.25rem;
         margin-bottom: 0.8rem;
     }
     div {

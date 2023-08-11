@@ -6,9 +6,9 @@ import { styled } from "styled-components"
 export const ContentDivStyled = styled.div`
     display: flex;
     box-sizing: border-box;
-    width: 64.3rem;
+    width: 60rem;
     height: 23.85rem;
-    margin-right: 1rem;
+    align-self: center;
     justify-content: center;
     align-items: center;
 
