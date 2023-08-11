@@ -10,15 +10,17 @@ export const HomeBackground = styled.div`
     position: absolute;
     color: white;
     height: 700px;
-    min-width: 101%;
+    margin: auto;
+    min-width: 100vw;
+    
     background-image: url(${backgroundImage});
 
      /*I Had a lot of headache trying to make my background-image don't lose the center when the screen is smalling(This is simple, but not so simple when we need zoom the image and position whetever we want). 
      The solution to Zoom that i foun was change the unit for 125em to be relative at the element size, i couldn't change the X axis without lose the center. but i could change the Y, and i did.*/
     background-repeat: no-repeat;
     background-position-x: center;
-    background-position-y: -210px;
-    background-size: 104em;
+    background-position-y:  center;
+    background-size: cover;
 `;
 
      
