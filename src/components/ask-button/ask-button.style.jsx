@@ -8,12 +8,13 @@ export const AskButtonStyled = styled.button`
     position: relative;
     border: 0;
     color: white;
-    width: 60rem;
+    width: 64.3rem;
     align-self: center;
     text-align: left;
     height: 5rem;
+    margin-top: 0.5rem;
     cursor: pointer;
-    margin-top: 0.6rem;
+    
     &:hover {
         background-color: #414141;
     }
@@ -43,7 +44,7 @@ export const AddSVGStyled = styled(AddSVG)`
 
 export const AnswerDivStyled = styled.div`
     background-color: red;
-    width: 60rem;
+    width: 64.3rem;
     height: 0px;
     transform-origin: top;
     animation-fill-mode: forwards;
