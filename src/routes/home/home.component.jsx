@@ -4,6 +4,7 @@ import { HeaderHome } from "../../components/header-home/header-home.component"
 import { SignPurple } from "../../components/sign-purple/sign-purple.component"
 import { DevicesHome } from "../../components/devices-home/devices-home.component"
 import { FrequentAsk } from "../../components/frequent-ask/frequent-ask.component"
+import { HomeFooter } from "../../components/footer-home/footer-home.component"
 
 
 export function Home(){
@@ -21,6 +22,7 @@ export function Home(){
                 </HomeBackgroundShadow>
                 <DevicesHome/>
                 <FrequentAsk/>
+                <HomeFooter/>
             </HomeBackground>
             
         </>

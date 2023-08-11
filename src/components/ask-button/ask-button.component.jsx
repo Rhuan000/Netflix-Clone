@@ -7,19 +7,38 @@ export function AskButton(props){
     const {children} = props
 
     useEffect(()=>{
-        if(isOpen === true){
-            setAnimation('expand')            
-        }else if(isOpen === false){
-            setAnimation('retrain') 
+        if(props.isOpen[props.id] === true){
+            setAnimation('expand')
+            setIsOpen(true)           
+        }else if(props.isOpen[props.id] === false){
+            setAnimation('retrain')
+            setIsOpen(false)
         }
         console.log(isOpen)
-    }, [isOpen])
+    }, [isOpen, props.isOpen])
 
     function buttonClicked(){
-        if(isOpen === false || isOpen === null){
-            setIsOpen(true)
-        } else if(isOpen) {
-            setIsOpen(false)
+        const state= props.isOpen
+        if(state){
+            Object.keys(state).forEach(key => {
+                if (state[key]  === true && key !== props.id){
+                    state[key] = false
+                } else if(key === props.id && state[key] === true){
+                    state[key] = false
+                    setIsOpen(false)
+                } else if(key === props.id && (state[key] === false || state[key] === null)){
+                    state[key] = true
+                    setIsOpen(true)
+                }
+            
+            })
+            props.setNewOpen({...state})
+        } else{
+            if(isOpen === false || isOpen === null){
+                setIsOpen(true)
+            } else if(isOpen) {
+                setIsOpen(false)
+            }
         }
     }
     
@@ -28,10 +47,11 @@ export function AskButton(props){
         <>
             
             <AskButtonStyled onClick={buttonClicked}>
-                <span>{children}</span>
+                <span>{props.title}</span>
                 <AddSVGStyled deg={isOpen ? -45 : 0}/>
             </AskButtonStyled>
             <AnswerDivStyled animation={animation}>
+                {children}
             </AnswerDivStyled>
             
         </>

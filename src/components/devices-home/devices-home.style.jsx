@@ -8,16 +8,20 @@ export const ContentDivStyled = styled.div`
     box-sizing: border-box;
     width: 64.3rem;
     height: 23.85rem;
-    margin-right: 1rem;
+    margin: auto;
     justify-content: center;
     align-items: center;
+    
+    flex-wrap: wrap;
 
     div {
+        display: flex;
         position: relative;
-        display:flex;
         flex-wrap: wrap;
         flex-direction: column;
+        text-align: left;
         justify-content: center;
+        
         width: 50%;
         height: 100%;
         flex-grow: 1;
