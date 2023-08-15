@@ -3,13 +3,14 @@ import { styled } from "styled-components";
 export const HomeFooterStyled = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 70%;
+    
     color: #BBBBBB;
     div {
-        width: 63.5rem;
+        width: 100%;
         margin-top: 3.7rem;
         height: 2.3rem;
+       
     }
     h4 {
         font-weight: 400;
@@ -25,10 +26,13 @@ export const HomeFooterStyled = styled.div`
 `
 export const NavFooterUl = styled.ul`
     display: grid;
-    grid-template-columns: repeat( 3, 1fr);
+    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr));
     row-gap: 1rem;
+    column-gap: 6rem;
+    
+    
 
-    li{
+    li{ 
         list-style: none;
         
         

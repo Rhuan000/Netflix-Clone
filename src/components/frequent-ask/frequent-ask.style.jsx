@@ -4,7 +4,7 @@ import { EmailSignature } from "../email-signature/email-signature.component";
 
 
 export const EmailSignatureStyled = styled(EmailSignature)`
-    margin: 3rem;
+    margin-top: 3rem;
 `
 export const HomeSeparatorAsk = styled(HomeSeparator)`
   

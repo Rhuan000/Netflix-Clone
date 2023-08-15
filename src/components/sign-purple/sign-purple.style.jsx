@@ -3,8 +3,8 @@ import { styled } from "styled-components"
 export const DivSign = styled.div`
     position: absolute;
     top: 627px;
-    padding-left: 9rem;
-    width: 100vw;
+    left: 5%;
+    width: 80%;
     background-color: rgb(0, 0, 0, 0.51);
     box-shadow: 0px -20px 200px 20px #000000;
 

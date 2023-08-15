@@ -6,13 +6,17 @@ import { styled } from "styled-components"
 export const ContentDivStyled = styled.div`
     display: flex;
     box-sizing: border-box;
-    width: 64.3rem;
-    min-height: 23.85rem;
-    margin: auto;
+   
+    
+    min-height: 23.8rem;
     justify-content: center;
     align-items: center;
     
-    flex-wrap: wrap;
+    
+    @media (max-width: 966px) {
+                flex-direction: column;
+                
+        }
 
     div {
         display: flex;
@@ -20,39 +24,61 @@ export const ContentDivStyled = styled.div`
         flex-wrap: wrap;
         flex-direction: column;
         text-align: left;
+        align-self: center;
         justify-content: center;
-        
+        align-content: center;
+        color: white;
         width: 50%;
         height: 100%;
-        flex-grow: 1;
+
+        @media (max-width: 966px) {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
 
         h2{
             font-size: 3rem;
             font-weight: 800;
+            @media (max-width: 966px) {
+               
+                font-size: 32px;
+        }
+        
         }
         p {
             font-size: 1.5rem;
             margin-top: 1rem;
+            @media (max-width: 966px) {
+               font-size: 18px;
+       }
         }
+        div {
+            max-width: 71%;
+        }
+        
     }
 `
 
 export const Image = styled.img`
     width: 90%;
-    height: 22rem;
+    height: 20%;
     z-index: 1;
+
 `
 export const GifTV = styled.video`
     position: absolute;
-    top: 22%;
-    left: 3.8rem;
+    top: 20.5%;
+    left: 16.7%;
+    height: 55%;
 
-    height: 52%;
+    
 `
 export const GifDesktop = styled.video`
     position: absolute;
-    top: 13%;
-    left: 4.7rem;
+    top: 11%;
+    left: 23%;
 
-    height: 45%;
+
+    height: 46%;
 `

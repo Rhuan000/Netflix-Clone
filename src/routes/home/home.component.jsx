@@ -5,27 +5,30 @@ import { SignPurple } from "../../components/sign-purple/sign-purple.component"
 import { DevicesHome } from "../../components/devices-home/devices-home.component"
 import { FrequentAsk } from "../../components/frequent-ask/frequent-ask.component"
 import { HomeFooter } from "../../components/footer-home/footer-home.component"
+import { HomeSeparator } from "../../components/home-separator/home-separator.component"
 
 
 export function Home(){
     return(
-        <>     
+        <div style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
             <HomeBackground>
                 <HomeBackgroundShadow>
                     <HeaderHome/>
-                    <div>
+                    <div >
                         <h1>Filmes, séries e muito mais, sem limites</h1>
                         <h2>Assista onde quiser. Cancele quando quiser.</h2>
-                        <EmailSignature/>
+                       
                     </div>
+                    <EmailSignature/>
                     <SignPurple/>
                 </HomeBackgroundShadow>
-                <DevicesHome/>
-                <FrequentAsk/>
-                <HomeFooter/>
             </HomeBackground>
+            <DevicesHome/>
+            <FrequentAsk/>
+            <HomeFooter/>
+
             
-        </>
+        </div>
 
     )
 }

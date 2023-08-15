@@ -8,30 +8,33 @@ export const AskButtonStyled = styled.button`
     position: relative;
     border: 0;
     color: white;
-    width: 64.3rem;
+    padding: 24px 24px;
+    width: 100%;
     align-self: center;
     text-align: left;
     height: 5rem;
     margin-top: 0.5rem;
     cursor: pointer;
+    @media (max-width: 966px){
+        height: 71px;
+        padding: 14px 24px;
+    }
     
     &:hover {
         background-color: #414141;
     }
 
     span {
-        padding-left: 1.5rem;
         font-size: 1.5rem;
+        
         color: white;
+    @media (max-width: 966px){
+        font-size: 18px;
+    }
         
     }
 `
 
-const expand = () => keyframes`
-  from {height: 0px;}
-  to {transform: 200px;};
-`
-const retrain = "retrain"
 
 export const AddSVGStyled = styled(AddSVG)`
     position: absolute;
@@ -40,31 +43,46 @@ export const AddSVGStyled = styled(AddSVG)`
     width: 36px;
     height: 36px;
     transform: rotate(${props => props.deg}deg);
+    @media (max-width: 966px){
+        width: 12px;
+        height: 12px;
+        top: 40%;
+    }
 `
 
 export const AnswerDivStyled = styled.div`
     display: flex;
     flex-direction: column;
+    align-self: center;
     margin-top: 0.1rem;
     overflow: hidden;
     background-color: #2D2D2D;
-    width: 64.3rem;
+    width: 100%;
     height: 0px;
+    color: white;
     transform-origin: top;
     animation-fill-mode: forwards;
+    
     animation-duration: 0.15s;
     animation-name: ${function(props){return props.animation}};
     
 
+
     span {
         font-size: 1.4rem;
         font-weight: 400;
-        margin-top: 0.8rem;
+        margin-top: 0.4rem;
         margin-left: 1.5rem;
         margin-right: 6rem;
         padding-bottom: 1.2rem;
+        @media (max-width: 966px){
+            font-size: 18px;
+            width: 90%;
+            padding-bottom: 0.6rem;
+        }
         
     }
+    
 
     @keyframes expand {
         from{height: 0px;}

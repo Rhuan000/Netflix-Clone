@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"
 import { ContentDivStyled, Image, GifTV, GifDesktop} from "./devices-home.style"
 import tvImg from "../../imgs/devices/netflix-tv-root.png"
 import desktpImg from "../../imgs/devices/netflix-desktop-root.png"
@@ -8,6 +9,29 @@ import { HomeSeparator } from "../../components/home-separator/home-separator.co
 //https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices.m4v
 
 export function DevicesHome(){
+        const [screenSize, setScreenSize] = useState({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+        const updateScreenSize = () => {
+            setScreenSize({
+              width: window.innerWidth,
+              height: window.innerHeight,
+            });
+          };
+        useEffect(() => {
+          // Update the screen size in state when the component mounts
+          
+      
+          // Attach event listener for resizing
+          window.addEventListener('resize', updateScreenSize);
+        console.log(screenSize.width)
+          // Clean up event listener on component unmount
+          return () => {
+            window.removeEventListener('resize', updateScreenSize);
+          };
+          
+        }, [screenSize]);
     return (
         <>
         <HomeSeparator>
@@ -23,16 +47,31 @@ export function DevicesHome(){
             </ContentDivStyled>
         </HomeSeparator>
         <HomeSeparator>
-            <ContentDivStyled>
-                <div>
-                    <Image src={desktpImg}/>
-                    <GifDesktop src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices.m4v" loop autoPlay/>
-                </div>
-                <div>
-                    <h2>Assista onde Quiser</h2>
-                    <p>Assista a quantos filmes e séries quiser no celular, tablet, laptop e TV.</p>
-                </div>
-            </ContentDivStyled>
+                <ContentDivStyled>
+                { screenSize.width > 966 ? (
+                    <>
+                    <div>
+                        <Image src={desktpImg}/>
+                        <GifDesktop src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices.m4v" loop autoPlay/>
+                    </div>
+                    <div>
+                        <h2>Assista onde Quiser</h2>
+                        <p>Assista a quantos filmes e séries quiser no celular, tablet, laptop e TV.</p>
+                    </div>
+                    </>
+                    ) : (                    
+                    <>
+                        <div>
+                            <h2>Assista onde Quiser</h2>
+                            <p>Assista a quantos filmes e séries quiser no celular, tablet, laptop e TV.</p>
+                        </div>
+                        <div>
+                            <Image src={desktpImg}/>
+                            <GifDesktop src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices.m4v" loop autoPlay/>
+                        </div>
+                    </>)
+                }
+                </ContentDivStyled>
         </HomeSeparator>
         <HomeSeparator>
             <ContentDivStyled>
@@ -47,13 +86,27 @@ export function DevicesHome(){
         </HomeSeparator>
         <HomeSeparator>
             <ContentDivStyled>
-                <div>
-                    <Image src={mobileImg}/>
-                </div>
-                <div>
-                    <h2>Baixe séries para assistir offline</h2>
-                    <p>Disponíveis somente em planos sem anúncios.</p>
-                </div>
+                {screenSize.width > 966 ? (
+                <>
+                    <div>
+                        <Image src={mobileImg}/>
+                    </div>
+                    <div>
+                        <h2>Baixe séries para assistir offline</h2>
+                        <p>Disponíveis somente em planos sem anúncios.</p>
+                    </div> 
+                </> ) : (
+                <>
+                    <div>
+                        <h2>Baixe séries para assistir offline</h2>
+                        <p>Disponíveis somente em planos sem anúncios.</p>
+                    </div> 
+                    <div>
+                        <Image src={mobileImg}/>
+                    </div>
+                </>)
+                }
+                
             </ContentDivStyled>
         </HomeSeparator>
         </>

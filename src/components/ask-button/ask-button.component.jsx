@@ -51,7 +51,7 @@ export function AskButton(props){
                 <AddSVGStyled deg={isOpen ? -45 : 0}/>
             </AskButtonStyled>
             <AnswerDivStyled animation={animation}>
-                {children}
+                    {children}      
             </AnswerDivStyled>
             
         </>

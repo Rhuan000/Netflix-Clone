@@ -11,4 +11,8 @@ export const Select = styled.select`
     margin-right: 1rem;
     border: solid 1px #605F5F;
 
+    @media (max-width: 966px){
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
 `

@@ -1,4 +1,4 @@
-import { HomeSeparatorAsk } from "./frequent-ask.style"
+import { HomeSeparator } from "../home-separator/home-separator.component"
 import { AskButton } from "../ask-button/ask-button.component"
 import { EmailSignature } from "../email-signature/email-signature.component"
 import { EmailSignatureStyled } from "./frequent-ask.style"
@@ -22,9 +22,9 @@ export function FrequentAsk(){
     }
 
     return(
-        <HomeSeparatorAsk >
-            <div style={{display: 'flex', flexDirection: 'column'}}>
-                <h2 style={{fontSize:"50px", textAlign: 'center', maxHeight: "927px"}}>Perguntas frequentes</h2>
+        <HomeSeparator >
+            <div style={{display: 'flex', flexDirection: 'column', width: "100%"}}>
+                <h2 style={{fontSize:"50px", textAlign: 'center', maxHeight: "927px", color: "white", paddingBottom: "3rem"}}>Perguntas frequentes</h2>
                 <AskButton id="1" isOpen={buttonOpen} setNewOpen = {setNewOpen} title="O que é a Netflix?">
                     <span>
                         A Netflix é um serviço de streaming que oferece uma ampla variedade de séries, filmes e documentários premiados em milhares de aparelhos conectados à internet.
@@ -64,10 +64,10 @@ export function FrequentAsk(){
                         O recurso de controle parental, incluso nos perfis para crianças e protegido por PIN, permite restringir a classificação etária do conteúdo que as crianças podem ver e bloquear títulos específicos que você não quer que elas assistam.
                     </span>
                 </AskButton>
-                <EmailSignatureStyled style={{marginBottom: "5rem"}}></EmailSignatureStyled>
                 
             </div>
+            <EmailSignatureStyled style={{marginBottom: "5rem"}}></EmailSignatureStyled>
             
-        </HomeSeparatorAsk>
+        </HomeSeparator>
     )
 }
