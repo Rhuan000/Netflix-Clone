@@ -1,5 +1,5 @@
 import { HeaderHome } from "../../components/header-home/header-home.component"
-import { LoginBackground, LoginBackgroundShadow, LoginHeader, Logo, LoginDiv, LoginContentDiv, LoginInput, LoginButton, LoginCheckbox } from "./login.style"
+import { LoginBackground, LoginBackgroundShadow, LoginHeader, Logo, LoginDiv, LoginContentDiv, LoginInput, LoginButton, LoginCheckbox, LoginCheckboxDiv } from "./login.style"
 
 export function Login(){
     return(
@@ -16,9 +16,12 @@ export function Login(){
                             <LoginInput placeholder="Email"/>
                             <LoginInput placeholder="Senha"/>
                             <LoginButton>Entrar</LoginButton>
-                            <LoginCheckbox id="myCheckbox"/>
-                            <label for="myCheckbox">Lembre-se de mim</label>
-                            <span><a>saiba mais</a></span>
+                            <LoginCheckboxDiv>
+                                <LoginCheckbox id="myCheckbox"/>
+                                <label for="myCheckbox">Lembre-se de mim</label>
+                                <span><a>Precisa de ajuda?</a></span>
+                            </LoginCheckboxDiv>
+
                         </form>
                     </LoginContentDiv>
                     
