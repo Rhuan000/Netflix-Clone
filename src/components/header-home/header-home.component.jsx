@@ -1,14 +1,15 @@
 import { HeaderStyle, DivHeader, DivLogo, HeaderButton, Logo } from "./header-home.style"
 import { LanguageSection } from "../language-section/language-section.component"
+import { Link } from "react-router-dom"
 export function HeaderHome(){
     return (
         <HeaderStyle>
                 <DivHeader>
                     <DivLogo>
-                        <Logo/>
+                    <Link to={'/'}><Logo/></Link>
                     </DivLogo>
                     <LanguageSection/>
-                    <HeaderButton>Entrar</HeaderButton>
+                    <Link to={'login'}><HeaderButton>Entrar</HeaderButton></Link>
                 </DivHeader>
             </HeaderStyle>
     )

@@ -1,5 +1,5 @@
 import { styled } from "styled-components"
-import backgroundImage from "../../imgs/large-backgroundImage-root.png"
+import backgroundImage from "../../imgs/large-backgroudImage-root.png"
 import { Button } from "../../components/button/button.component"
 import { ReactComponent as LogoSVG } from "../../logo.svg"
 import backgroundImageMedium from "../../imgs/medium-backgroundImage-root.png"

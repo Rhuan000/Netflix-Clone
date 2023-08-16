@@ -8,7 +8,7 @@ export const HeaderStyle = styled.header`
     width: 100%;
     background: linear-gradient(to bottom, rgb(0, 0, 0, 0.72) 12%, rgb(0, 0, 0, 0.45));
     box-shadow: 0px 0px 90px 50px rgb(0, 0, 0, 0.5);
-   
+    z-index: 1;
 `
 
 export const DivHeader = styled.div`
@@ -30,6 +30,7 @@ export const HeaderButton = styled(Button)`
     font-weight: bold;
     border-radius: 4px;
     text-align: center;
+
     span {
         margin: 0;
     }
