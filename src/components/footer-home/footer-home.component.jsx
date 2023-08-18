@@ -3,7 +3,7 @@ import { LanguageSection } from "../language-section/language-section.component"
 
 export function HomeFooter(props){
     return(
-        <HomeFooterStyled>
+        <HomeFooterStyled {...props}>
             <div>
                 <h4>Dúvidas? Ligue 0800 591 2876</h4>
                 <NavFooterUl>

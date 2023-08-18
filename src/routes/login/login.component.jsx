@@ -1,32 +1,20 @@
-import { HeaderHome } from "../../components/header-home/header-home.component"
-import { LoginBackground, LoginBackgroundShadow, LoginHeader, Logo, LoginDiv, LoginContentDiv, LoginInput, LoginButton, LoginCheckbox, LoginCheckboxDiv } from "./login.style"
+
+import { FooterLogin } from "../../components/footer-login/footer-login.component"
+import { FormLogin } from "../../components/form-login/form-login.component"
+import {LoginBackground, LoginBackgroundShadow, LoginHeader, Logo} from "./login.style"
+import { Link } from "react-router-dom"
+
 
 export function Login(){
     return(
         <>
             <LoginBackground>
                 <LoginHeader>
-                    <Logo/>
+                    <Link to="/"><Logo/></Link>
                 </LoginHeader>
                 <LoginBackgroundShadow/>
-                <LoginDiv>
-                    <LoginContentDiv>
-                        <h1 style={{marginBottom: "1rem"}}>Entrar</h1>
-                        <form>
-                            <LoginInput placeholder="Email"/>
-                            <LoginInput placeholder="Senha"/>
-                            <LoginButton>Entrar</LoginButton>
-                            <LoginCheckboxDiv>
-                                <LoginCheckbox id="myCheckbox"/>
-                                <label for="myCheckbox">Lembre-se de mim</label>
-                                <span><a>Precisa de ajuda?</a></span>
-                            </LoginCheckboxDiv>
-
-                        </form>
-                    </LoginContentDiv>
-                    
-                </LoginDiv>
-                
+                <FormLogin/>
+                <FooterLogin/>
             </LoginBackground>
         </>
     )
