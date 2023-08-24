@@ -22,6 +22,7 @@ export const LoginBackground = styled(HomeBackground)`
     background-size: 116em;
     padding-bottom: 0px;
     height: 900px;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
