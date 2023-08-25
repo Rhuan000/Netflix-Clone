@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { MdAddCircle } from 'react-icons/md';
 
 export const  BrowserContainerDiv = styled.div`
     background: linear-gradient(to bottom, #050505 0%, #141414 12%);
@@ -23,6 +24,32 @@ export const BrowserProfilesContentDiv = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    min-width: 312px;
+    margin-bottom: 2rem;
+
+`
+export const BrowserGeneralPerfilDiv = styled.div`
+    color: gray;
+    position: relative;
+    text-align: center;
+    span {
+        
+        width: 123px;
+        position: absolute;
+        left: 2.5%;
+        margin-top: 0.6rem;
+        font-size: 18px;
+    }
+    &:hover {
+        color: white;
+        cursor: pointer;
+    }
+    margin-top: 2.2rem;
+    margin-right: 0.75rem;
+    margin-left: 0.75rem;
+    max-width: 150px;
+    padding-bottom: 1rem;
 `
 
 export const BrowserPerfilDiv = styled.div`
@@ -30,15 +57,11 @@ export const BrowserPerfilDiv = styled.div`
     position:relative;
     display: flex;
     flex-direction: column;
-    margin-top: 2.2rem;
-    margin-right: 0.75rem;
-    margin-left: 0.75rem;
-    color: grey;
 
-    span {
-        margin-top: 0.6rem;
-        font-size: 18px;
-    }
+    
+
+
+
 
     &::before{
         content: '';
@@ -47,16 +70,13 @@ export const BrowserPerfilDiv = styled.div`
         left: 0;
         right: 0;
         bottom: 0;
-        height: 78.2%;
+        height: 97%;
         border: 3px solid transparent;
         border-radius: 4px;
         
     }
-    &:hover{
-        color: white;
-        cursor: pointer
-    }
-    &:hover::before{
+
+    ${BrowserGeneralPerfilDiv}:hover &::before{
             border-color: white;
             
         }
@@ -69,6 +89,29 @@ export const BrowserPerfilDiv = styled.div`
 
     }
 `
+export const BrowserAddPerfilDiv = styled(BrowserPerfilDiv)`
+    height: 130.39px;
+    width: 130.39px;
+    
+    color: white;
+    border-radius: 5px;
+
+    ${BrowserGeneralPerfilDiv}:hover &{
+        color: #565656;
+        background-color: #E5E5E5;
+    }
+
+    &::before {
+        display:none;
+    }
+`
+export const BrowserAddIcon = styled(MdAddCircle)`
+    position: absolute;
+    left: 13.5%;
+    top: 13%;
+    font-size: 6rem;
+`
+
 
 export const BrowserButton = styled.button`
     background: transparent;

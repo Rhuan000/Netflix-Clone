@@ -2,8 +2,8 @@ import { useEffect, useState, useContext } from "react"
 import { UserContext } from "../../contexts/user.context"
 import { useNavigate } from "react-router-dom"
 import { getUserData, getUserImage } from "../../utils/firebase/firestore.utils"
-import { BrowserButton, BrowserContainerDiv, BrowserContentDiv,  BrowserPerfilDiv, BrowserProfilesContentDiv } from "./browser.styled"
-import { set } from "firebase/database"
+import { BrowserAddIcon, BrowserAddPerfilDiv, BrowserButton, BrowserContainerDiv, BrowserContentDiv,  BrowserGeneralPerfilDiv,  BrowserPerfilDiv, BrowserProfilesContentDiv } from "./browser.styled"
+
 
 export function Browser(){
     const [userData, setUserData] = useState(null)
@@ -40,14 +40,26 @@ export function Browser(){
                     {userData.profiles.map(({profile}) => {
                         console.log(profile.img)
                         return (
+                           <BrowserGeneralPerfilDiv>
                             <BrowserPerfilDiv>
                                 <img src={userImage[profile.img]} alt="profile image"/>
                  
-                                <span>{profile.name}</span>
                             </BrowserPerfilDiv>
+                                <span>{profile.name}</span>
+                            </BrowserGeneralPerfilDiv>
+                           
                         )
-                    })} 
-                </BrowserProfilesContentDiv>
+                    })}
+                    {userData.profiles.length < 5 &&
+                        <BrowserGeneralPerfilDiv>
+                            <BrowserAddPerfilDiv >
+                               <BrowserAddIcon/>
+                            </BrowserAddPerfilDiv>
+                                <span>Adicionar perfil</span>
+                        </BrowserGeneralPerfilDiv>
+                       
+                    }
+                </BrowserProfilesContentDiv>    
                 <BrowserButton onClick={handleManageButton}>Gerenciar perfis</BrowserButton>
             </BrowserContentDiv>}
         </BrowserContainerDiv>

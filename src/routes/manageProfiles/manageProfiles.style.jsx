@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { BrowserButton, BrowserContentDiv, BrowserPerfilDiv } from "../browser/browser.styled";
+import { BrowserButton, BrowserGeneralPerfilDiv, BrowserContentDiv, BrowserPerfilDiv } from "../browser/browser.styled";
 import { ReactComponent as editProfileSVG } from "../../svgs/edit-profile.svg"
 
 export const ManageContentDiv = styled(BrowserContentDiv)`
@@ -8,7 +8,7 @@ export const ManageContentDiv = styled(BrowserContentDiv)`
 `
 
 export const ManageProfileDiv = styled(BrowserPerfilDiv)`
-    
+    width: 100%;
     &::before{
         background-color: rgb(4,4,4, 0.5);
     }
@@ -22,8 +22,8 @@ export const EditProfileSVG = styled(editProfileSVG)`
     position: absolute;
     fill: white;
     color: white;
-    top: 30%;
-    left: 40%;
+    top: 36%;
+    left: 42%;
     height: 30px;
     width: 30px;
 `
@@ -86,7 +86,7 @@ export const ManageChosenDiv = styled.div`
         overflow: visible;
         height: 20px;
         width: 20px;
-        top: 65%;
+        top: 67%;
         left: 2%;
     }
 
@@ -114,4 +114,12 @@ export const ManageChosenButtonDiv = styled.div`
     column-gap: 1rem;
 `
 
+export const ManageGeneralPerfilDiv = styled(BrowserGeneralPerfilDiv)`
+    &:hover {
+        ${ManageProfileDiv}::before{
+        border-color: grey;
+        }
+    }
+    
 
+`

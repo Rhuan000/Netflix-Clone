@@ -23,8 +23,8 @@ export function SignUp(){
     async function handleSubmit(event){
         event.preventDefault()
         
-        const {user} =  await createUserWithEmailPassword(form.email, form.password);
-        console.log(await createUserDocumentFromAuth(user))
+        const response =  await createUserWithEmailPassword(form.email, form.password);
+        console.log(await createUserDocumentFromAuth(response.user))
 
     }
     
