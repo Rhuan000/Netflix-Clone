@@ -4,65 +4,41 @@ import { UserContext } from "../../contexts/user.context"
 import { useNavigate } from "react-router-dom"
 import { getUserData, getUserImage, updateDocument } from "../../utils/firebase/firestore.utils"
 import { EditProfileSVG, ManageButton, ManageChosenContainer, ManageContentDiv, ManageProfileDiv, ManageChosenDiv, ManageChosenButtonDiv, ManageGeneralPerfilDiv } from "./manageProfiles.style"
-
+import { AddProfile } from "../../components/add-profile/add-profile.component"
+import { ManageEditProfile } from "../../components/manage-edit-profile/manage-edit-profile.component"
 
 export function ManageProfiles(){
-    const [userData, setUserData] = useState(null)
-    const [userImage, setUserImage] = useState(null)
+    
     const [chosenProfile, setChosenProfile] = useState(null)
     const [nameValue, setNameValue] = useState("")
-    const [userIndex, setUserIndex] = useState(null)
     const [addPerfilOpen, setAddPerfilOpen] =  useState(false)
-    const userContext = useContext(UserContext)
+    const {userData, setUserData, setUsersImages, currentUser, usersImages} = useContext(UserContext)
     const navigate = useNavigate()
     
     useEffect(()=>{
-        const user = userContext.currentUser
+        const user = currentUser
         if(user){
             async function userData() {
                 const userDataResponse = await getUserData(user.uid)
                 const userImageResponse = await getUserImage()
-                console.log(userImageResponse)
-                setUserImage(userImageResponse.profiles)
+                setUsersImages(userImageResponse.profiles)
                 setUserData(userDataResponse)
             }
             userData()
         } else {
             navigate("/login")
         }
-
     }, [])
     
-    useEffect(()=>{
-        if(chosenProfile)console.log(userData)
-    }, [userData])
 
 
     function handleConcluded(){
         navigate("/browser")
 
     }
+    
     function handleAddProfileClick(){
-        setAddPerfilOpen(true)
-    }
-    function handleAddProfileCancelClick(){
-        setAddPerfilOpen(false)
-    }
-    function handleAddProfileContinueClick(){
-        const newUser = {
-            profile: {
-                name: nameValue,
-                img: "0",
-                movies: {
-                    watching: []
-                },
-            }
-        }
-        userData.profiles.push(newUser)
-        setUserData({...userData})
-        setNameValue(null)
-        updateDocument(userContext.currentUser.uid, userData)
-        setAddPerfilOpen(false)
+        setAddPerfilOpen(!addPerfilOpen)
     }
     
     function handleProfileClick(event){
@@ -70,33 +46,7 @@ export function ManageProfiles(){
         
         setChosenProfile(userData.profiles[index])
         setNameValue(userData.profiles[index].profile.name)
-        setUserIndex(index)
-    }
-
-    function handleManageCancelButton(){
-        setChosenProfile(null)
-    }
-
-    function handleManageNameChange(event){
-        setNameValue(event.target.value)
-    }
-
-    function handleManageSaveButton(){
-        userData.profiles[userIndex].profile.name = nameValue
-        setUserData({...userData})
-        setNameValue(null)
-        setChosenProfile(null)
-        setUserIndex(null)
-        updateDocument(userContext.currentUser.uid, userData)
-    }
-    function handleManageDeleteButton(){
-       
-        userData.profiles.splice(userIndex, 1)
-        setUserData({...userData})
-        setNameValue(null)
-        setChosenProfile(null)
-        setUserIndex(null)
-        updateDocument(userContext.currentUser.uid, userData)
+        //setUserIndex(index)
     }
 
     return(
@@ -111,7 +61,7 @@ export function ManageProfiles(){
                             <ManageGeneralPerfilDiv key={i} data-index={i} onClick={handleProfileClick} style={{"zIndex": "1"}}>
                             <ManageProfileDiv>
                                 <EditProfileSVG/>
-                                <img src={userImage[profile.img]} alt="profile image"/>
+                                <img src={usersImages[profile.img]} alt="profile image"/>
 
                             </ManageProfileDiv>
                                     <span>{profile.name}</span>
@@ -131,54 +81,9 @@ export function ManageProfiles(){
                 <ManageButton onClick={handleConcluded}>Concluido</ManageButton>
             </ManageContentDiv>
         }
-        {chosenProfile && 
-        <ManageChosenContainer>
-            <div>
-           
-                <h1>Editar perfil</h1>
-            
-            <ManageChosenDiv>
-            
-                <EditProfileSVG/>
-                <img src={userImage[chosenProfile.profile.img]}/>
-                <div>
-                    <input onChange={handleManageNameChange} value={nameValue}></input>
-                </div>
-            </ManageChosenDiv>
-            <ManageChosenButtonDiv>
-                <ManageButton onClick={handleManageSaveButton}>Salvar</ManageButton>
-                <BrowserButton onClick={handleManageCancelButton}>Cancelar</BrowserButton>
-                <BrowserButton onClick={handleManageDeleteButton}>Excluir perfil</BrowserButton>
-            </ManageChosenButtonDiv>
-
-            </div>
-            
-        </ManageChosenContainer>
-        }
-        {addPerfilOpen && 
-            <ManageChosenContainer>
-            <div>
-           
-                <h1>Adicionar Perfil</h1>
-                <p>Adicione um perfil Netflix para uma outra pessoa.</p>
-            <ManageChosenDiv>
-            
-                <EditProfileSVG/>
-                <img src={userImage[0]}/>
-                <div>
-                    <input onChange={handleManageNameChange} placeholder="Nome" value={nameValue}></input>
-                </div>
-            </ManageChosenDiv>
-            <ManageChosenButtonDiv>
-                <ManageButton onClick={handleAddProfileContinueClick}>Continuar</ManageButton>
-                <BrowserButton onClick={handleAddProfileCancelClick}>Cancelar</BrowserButton>
-
-            </ManageChosenButtonDiv>
-
-            </div>
-            
-        </ManageChosenContainer>
-        }
+        {chosenProfile && <ManageEditProfile setChosenProfile={setChosenProfile} chosenProfile={chosenProfile} />}
+        {addPerfilOpen && <AddProfile  addPerfilOpen={handleAddProfileClick}/>}
+        
     </BrowserContainerDiv>
     )
 }

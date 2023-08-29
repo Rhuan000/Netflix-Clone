@@ -3,22 +3,21 @@ import { UserContext } from "../../contexts/user.context"
 import { useNavigate } from "react-router-dom"
 import { getUserData, getUserImage } from "../../utils/firebase/firestore.utils"
 import { BrowserAddIcon, BrowserAddPerfilDiv, BrowserButton, BrowserContainerDiv, BrowserContentDiv,  BrowserGeneralPerfilDiv,  BrowserPerfilDiv, BrowserProfilesContentDiv } from "./browser.styled"
-
+import { AddProfile } from "../../components/add-profile/add-profile.component"
 
 export function Browser(){
-    const [userData, setUserData] = useState(null)
-    const [userImage, setUserImage] = useState(null)
-    const userContext = useContext(UserContext)
+    const [addPerfilOpen, setAddPerfilOpen] = useState(null)
+    const {userData, setUserData, usersImages, setUsersImages, currentUser, setCurrentUser} = useContext(UserContext)
     const navigate = useNavigate()
     
     useEffect(()=>{
-        const user = userContext.currentUser
+        const user = currentUser
         if(user){
             async function userData() {
                 const userDataResponse = await getUserData(user.uid)
                 const userImageResponse = await getUserImage()
                 console.log(userImageResponse)
-                setUserImage(userImageResponse.profiles)
+                setUsersImages(userImageResponse.profiles)
                 setUserData(userDataResponse)
             }
             userData()
@@ -27,8 +26,14 @@ export function Browser(){
         }
 
     }, [])
+
+
     function handleManageButton(){
         navigate('/manageProfiles')
+    }
+
+    function handleAddProfileClick(){
+        setAddPerfilOpen(!addPerfilOpen)
     }
     
     return(
@@ -42,7 +47,7 @@ export function Browser(){
                         return (
                            <BrowserGeneralPerfilDiv>
                             <BrowserPerfilDiv>
-                                <img src={userImage[profile.img]} alt="profile image"/>
+                                <img src={usersImages[profile.img]} alt="profile image"/>
                  
                             </BrowserPerfilDiv>
                                 <span>{profile.name}</span>
@@ -51,7 +56,7 @@ export function Browser(){
                         )
                     })}
                     {userData.profiles.length < 5 &&
-                        <BrowserGeneralPerfilDiv>
+                        <BrowserGeneralPerfilDiv onClick={handleAddProfileClick}>
                             <BrowserAddPerfilDiv >
                                <BrowserAddIcon/>
                             </BrowserAddPerfilDiv>
@@ -61,7 +66,11 @@ export function Browser(){
                     }
                 </BrowserProfilesContentDiv>    
                 <BrowserButton onClick={handleManageButton}>Gerenciar perfis</BrowserButton>
-            </BrowserContentDiv>}
+            </BrowserContentDiv>
+            }
+            {addPerfilOpen && 
+                <AddProfile  addPerfilOpen={handleAddProfileClick}/>
+            }
         </BrowserContainerDiv>
     )
 }

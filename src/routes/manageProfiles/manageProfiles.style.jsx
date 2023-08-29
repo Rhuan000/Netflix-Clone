@@ -26,6 +26,9 @@ export const EditProfileSVG = styled(editProfileSVG)`
     left: 42%;
     height: 30px;
     width: 30px;
+    &:hover{
+        cursor: pointer;
+    }
 `
 
 
