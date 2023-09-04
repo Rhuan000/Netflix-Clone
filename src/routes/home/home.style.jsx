@@ -21,7 +21,7 @@ export const HomeBackground = styled.div`
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y:  -210px;
-    background-size: 104em;
+    background-size: 120%;
     padding-bottom: 4rem;
 
 `;

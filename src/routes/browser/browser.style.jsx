@@ -52,7 +52,7 @@ export const BrowserGeneralPerfilDiv = styled.div`
     padding-bottom: 1rem;
 `
 
-export const BrowserPerfilDiv = styled.div`
+export const BrowserProfileDiv = styled.div`
     box-sizing: border-box;
     position:relative;
     display: flex;
@@ -63,7 +63,7 @@ export const BrowserPerfilDiv = styled.div`
 
 
 
-    &::before{
+    ::before{
         content: '';
         position: absolute; /* Position the pseudo-element within the container */
         top: 0;
@@ -83,13 +83,12 @@ export const BrowserPerfilDiv = styled.div`
     
     img{
         box-sizing: border-box;
-        height: 130.59px;
-        width: 130.59px;
+        height: 130.39px;
+        width: 130.39px;
         border-radius: 5px;
-
     }
 `
-export const BrowserAddPerfilDiv = styled(BrowserPerfilDiv)`
+export const BrowserAddPerfilDiv = styled(BrowserProfileDiv)`
     height: 130.39px;
     width: 130.39px;
     

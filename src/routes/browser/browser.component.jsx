@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react"
 import { UserContext } from "../../contexts/user.context"
 import { useNavigate } from "react-router-dom"
 import { getUserData, getUserImage } from "../../utils/firebase/firestore.utils"
-import { BrowserAddIcon, BrowserAddPerfilDiv, BrowserButton, BrowserContainerDiv, BrowserContentDiv,  BrowserGeneralPerfilDiv,  BrowserPerfilDiv, BrowserProfilesContentDiv } from "./browser.styled"
+import { BrowserAddIcon, BrowserAddPerfilDiv, BrowserButton, BrowserContainerDiv, BrowserContentDiv,  BrowserGeneralPerfilDiv,  BrowserProfileDiv, BrowserProfilesContentDiv } from "./browser.style"
 import { AddProfile } from "../../components/add-profile/add-profile.component"
 
 export function Browser(){
@@ -46,10 +46,10 @@ export function Browser(){
                         console.log(profile.img)
                         return (
                            <BrowserGeneralPerfilDiv>
-                            <BrowserPerfilDiv>
+                            <BrowserProfileDiv>
                                 <img src={usersImages[profile.img]} alt="profile image"/>
                  
-                            </BrowserPerfilDiv>
+                            </BrowserProfileDiv>
                                 <span>{profile.name}</span>
                             </BrowserGeneralPerfilDiv>
                            

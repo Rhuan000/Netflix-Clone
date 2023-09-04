@@ -2,7 +2,7 @@ import { UserContext } from "../../contexts/user.context"
 import { useContext, useState } from "react"
 import { updateDocument } from "../../utils/firebase/firestore.utils"
 import { ManageChosenContainer, ManageChosenDiv, EditProfileSVG, ManageChosenButtonDiv, ManageButton } from "../../routes/manageProfiles/manageProfiles.style"
-import { BrowserButton } from "../../routes/browser/browser.styled"
+import { BrowserButton } from "../../routes/browser/browser.style"
 
 export function AddProfile(props){
     const {userData, currentUser, usersImages, setUserData} = useContext(UserContext)

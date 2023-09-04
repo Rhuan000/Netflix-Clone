@@ -1,4 +1,4 @@
-import { BrowserButton, BrowserContainerDiv, BrowserProfilesContentDiv, BrowserGeneralPerfilDiv, BrowserAddPerfilDiv, BrowserAddIcon } from "../browser/browser.styled"
+import { BrowserButton, BrowserContainerDiv, BrowserProfilesContentDiv, BrowserGeneralPerfilDiv, BrowserAddPerfilDiv, BrowserAddIcon } from "../browser/browser.style"
 import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../../contexts/user.context"
 import { useNavigate } from "react-router-dom"

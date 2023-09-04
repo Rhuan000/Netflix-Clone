@@ -44,9 +44,7 @@ export const UserProvider = ({children}) => {
                 console.log(userDataResponse)
             }
             userData()
-        } else {
-            navigate("/login")
-        }
+        } 
 
     }, [currentUser])
 

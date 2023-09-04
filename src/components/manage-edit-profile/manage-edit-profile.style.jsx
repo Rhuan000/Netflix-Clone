@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import {FiArrowLeft} from "react-icons/fi"
+import { BrowserGeneralPerfilDiv, BrowserProfileDiv } from "../../routes/browser/browser.style";
 import {FiChevronRight, FiChevronLeft} from "react-icons/fi"
 
 export const EditProfileChosenContainer = styled.div`
@@ -11,6 +12,7 @@ export const EditProfileChosenContainer = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
+    max-width: 1300px;
     height: 100%;
 `
 export const EditProfileHeader = styled.div`
@@ -51,7 +53,7 @@ export const EditProfileArrowLeft = styled(FiArrowLeft)`
     font-weight: 700;
     cursor: pointer;
     font-size: 2.5rem;
-    top: -1rem;
+    top: 3.2rem;
     
 `
 
@@ -60,22 +62,53 @@ export const EditProfileImageCarousel = styled.div`
     padding-right: 1rem;
     position: relative;
     display: flex;
-    max-width: 90%;
+    max-width: 1200px;
     overflow: hidden;
+
 `
-export const EditProfileLeftButtonCarousel = styled.div`
-    height: 74%;
-    width: 3rem;
-    background-color: rgb(0,0,0,0.4);
+export const EditProfileGeneralPerfilDiv = styled(BrowserGeneralPerfilDiv)`
+    margin-right: 0.57rem;
+    margin-left: 0.57rem;
+`
+export const EditProfileDiv = styled(BrowserProfileDiv)`
+    img {
+        height: 135px;
+        width: 135px;
+    }
+    &::after{
+        content: '';
+        position: absolute; /* Position the pseudo-element within the container */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 97%;
+        border: 2px solid transparent;
+        border-radius: 4px;
+    }
+
+    ${EditProfileGeneralPerfilDiv}:hover &::after{
+         border-color: white;
+            
+    }
+`
+export const EditProfileLeftButtonCarousel = styled.button`
+    height: 140px;
+    width: 3.7rem;
+    border: 0;
+    color: white;
+    background: linear-gradient(to right, #141414 40%, rgb(0,0,0, 0.3));
     position: absolute;
     display: flex;
     align-items: center;
-    top: 18.7%;
+    top: 35px;
     z-index: 1;
-    left: 0.5%;
+    left: -0.6%;
+    border-radius: 4px;
 `
 export const EditProfileRightButtonCarousel = styled(EditProfileLeftButtonCarousel)`
-    left: 96.2%;
+    left: 95.5%;
+    background: linear-gradient(to left, #141414 40%, rgb(0,0,0, 0.3));
 `
 
 export const EditProfileChevronLeft = styled(FiChevronLeft)`
