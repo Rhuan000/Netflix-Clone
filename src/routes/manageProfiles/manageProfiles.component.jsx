@@ -51,7 +51,7 @@ export function ManageProfiles(){
 
     return(
         <BrowserContainerDiv>
-        {userData && 
+        {userData && !chosenProfile &&
             <ManageContentDiv>
                 <h1>Gerenciar perfis:</h1>
                 <BrowserProfilesContentDiv>

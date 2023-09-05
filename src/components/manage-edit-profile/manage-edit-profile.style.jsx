@@ -60,10 +60,14 @@ export const EditProfileArrowLeft = styled(FiArrowLeft)`
 export const EditProfileImageCarousel = styled.div`
     padding-left: 1rem;
     padding-right: 1rem;
+    
     position: relative;
     display: flex;
+    
     max-width: 1200px;
     overflow: hidden;
+    margin-right: 2.3rem;
+    
 
 `
 export const EditProfileGeneralPerfilDiv = styled(BrowserGeneralPerfilDiv)`
@@ -94,7 +98,7 @@ export const EditProfileDiv = styled(BrowserProfileDiv)`
 `
 export const EditProfileLeftButtonCarousel = styled.button`
     height: 140px;
-    width: 3.7rem;
+    width: 4rem;
     border: 0;
     color: white;
     background: linear-gradient(to right, #141414 40%, rgb(0,0,0, 0.3));
@@ -103,20 +107,45 @@ export const EditProfileLeftButtonCarousel = styled.button`
     align-items: center;
     top: 35px;
     z-index: 1;
-    left: -0.6%;
+    left: -0.3%;
     border-radius: 4px;
+
+
 `
 export const EditProfileRightButtonCarousel = styled(EditProfileLeftButtonCarousel)`
-    left: 95.5%;
+    left: 95.2%;
+   
     background: linear-gradient(to left, #141414 40%, rgb(0,0,0, 0.3));
+   
 `
 
 export const EditProfileChevronLeft = styled(FiChevronLeft)`
     font-weight: 700;
     font-size: 3rem;
+    margin-left: 0.5rem;
+    display: none;
+    transition: 0.3s;
+
+    ${EditProfileLeftButtonCarousel}:hover & {
+        transform: scale(1.4);
+    }
+
+    ${EditProfileImageCarousel}:hover & {
+        display: inline-block;
+    }
+    
 `
 
 export const EditProfileChevronRight = styled(FiChevronRight)`
     font-weight: 700;
     font-size: 3rem;
+    margin-right: 0.5rem;
+    transition: 0.3s;
+    display: none; 
+    ${EditProfileRightButtonCarousel}:hover & {
+        transform: scale(1.4);
+    }
+    ${EditProfileImageCarousel}:hover & {
+        display: inline-block;
+    }
 `

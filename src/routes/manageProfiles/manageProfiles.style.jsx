@@ -5,6 +5,11 @@ import { ReactComponent as editProfileSVG } from "../../svgs/edit-profile.svg"
 export const ManageContentDiv = styled(BrowserContentDiv)`
     position: relative;
     color: grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 `
 
 export const ManageProfileDiv = styled(BrowserProfileDiv)`
