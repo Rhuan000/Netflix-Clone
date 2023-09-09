@@ -1,6 +1,6 @@
 
-import { FooterLogin } from "../../components/footer-login/footer-login.component"
-import { FormLogin } from "../../components/form-login/form-login.component"
+import { LoginFooter } from "../../components/login-footer/login-footer.component"
+import { LoginForm } from "../../components/login-form/login-form.component"
 import {LoginBackground, LoginBackgroundShadow, LoginHeader, Logo} from "./login.style"
 import { Link } from "react-router-dom"
 
@@ -13,8 +13,8 @@ export function Login(){
                     <Link to="/"><Logo/></Link>
                 </LoginHeader>
                 <LoginBackgroundShadow/>
-                <FormLogin/>
-                <FooterLogin/>
+                <LoginForm/>
+                <LoginFooter/>
             </LoginBackground>
         </>
     )

@@ -5,7 +5,7 @@ export function BrowserLoading({userImage}){
     return(
         <BrowserContainerDiv>
             <BrowserLoader>
-                <div style={{height: "100px", borderRadius: "5px",width: "100px", zIndex: 1, position: "absolute", left: "22%", top: "22%",backgroundColor: "red", backgroundImage: `url(${userImage})`, backgroundSize: "cover"}}></div>
+                <div style={{height: "100px", borderRadius: "5px",width: "100px", zIndex: 1, position: "absolute", left: "22%", top: "24%",backgroundColor: "red", backgroundImage: `url(${userImage})`, backgroundSize: "cover"}}></div>
             </BrowserLoader>
         </BrowserContainerDiv>
     )

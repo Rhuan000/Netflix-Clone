@@ -1,4 +1,4 @@
-import { HeaderStyle, DivHeader, DivLogo, HeaderButton, Logo } from "./header-home.style"
+import { HeaderStyle, DivHeader, DivLogo, HeaderButton, Logo } from "./home-header.style"
 import { LanguageSection } from "../language-section/language-section.component"
 import { Link } from "react-router-dom"
 export function HeaderHome(){

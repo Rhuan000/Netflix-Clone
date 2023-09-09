@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
-import { LoginInput } from "../../components/form-login/form-login.style";
-import { FooterLogin } from "../../components/footer-login/footer-login.component";
+import { LoginInput } from "../../components/login-form/login-form.style";
+import { LoginFooter } from "../../components/login-footer/login-footer.component";
 import { LoginHeader } from "../login/login.style";
 import { Button } from "../../components/button/button.component";
 
@@ -89,7 +89,7 @@ export const SignUpButton = styled(Button)`
     font-size: 14px;
 `
 
-export const FooterSignUp = styled(FooterLogin)`
+export const FooterSignUp = styled(LoginFooter)`
     color: #737373;
     background-color: #F3F3F3;
     border-top: 1px solid #D8D8D8;

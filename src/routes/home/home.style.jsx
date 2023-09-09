@@ -12,6 +12,7 @@ export const HomeBackground = styled.div`
     
     color: white;
     min-height: 700px;
+    height: 100vh;
     width: 100%;
     min-width: 384px;
     background-image: url(${backgroundImage});

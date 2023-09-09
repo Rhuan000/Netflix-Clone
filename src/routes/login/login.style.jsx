@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { HomeBackground } from "../home/home.style";
 import { HomeBackgroundShadow } from "../home/home.style";
 import {ReactComponent as LogoSVG} from "../../logo.svg"
-import { HeaderStyle } from "../../components/header-home/header-home.style";
+import { HeaderStyle } from "../../components/home-header/home-header.style";
 import { Button } from "../../components/button/button.component";
 
 

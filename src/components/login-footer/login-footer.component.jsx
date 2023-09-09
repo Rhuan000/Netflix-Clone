@@ -1,9 +1,9 @@
-import { LoginFooter, LoginFooterContent } from "./footer-login.style"
+import { LoginStyledFooter, LoginFooterContent } from "./login-footer.style"
 import { LanguageSection } from "../language-section/language-section.component"
 
-export function FooterLogin(props){
+export function LoginFooter(props){
     return(
-        <LoginFooter {...props}>
+        <LoginStyledFooter {...props}>
             <LoginFooterContent>
                 <h3>Duvidas? Ligue 0800 591 2876</h3>
                 <nav>
@@ -18,6 +18,6 @@ export function FooterLogin(props){
                 </nav>
             <LanguageSection style={{marginTop: "1rem"}}/>
             </LoginFooterContent>
-        </LoginFooter>
+        </LoginStyledFooter>
     )
 }

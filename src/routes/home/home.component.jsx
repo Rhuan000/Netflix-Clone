@@ -1,10 +1,10 @@
 import {HomeBackground, HomeBackgroundShadow, DivSign} from "./home.style"
 import { EmailSignature } from "../../components/email-signature/email-signature.component"
-import { HeaderHome } from "../../components/header-home/header-home.component"
+import { HeaderHome } from "../../components/home-header/home-header.component"
 import { SignPurple } from "../../components/sign-purple/sign-purple.component"
-import { DevicesHome } from "../../components/devices-home/devices-home.component"
+import { HomeDevices } from "../../components/home-devices/home-devices.component"
 import { FrequentAsk } from "../../components/frequent-ask/frequent-ask.component"
-import { HomeFooter } from "../../components/footer-home/footer-home.component"
+import { HomeFooter } from "../../components/home-footer/home-footer.component"
 import { HomeSeparator } from "../../components/home-separator/home-separator.component"
 
 
@@ -23,7 +23,7 @@ export function Home(){
                     <SignPurple/>
                 </HomeBackgroundShadow>
             </HomeBackground>
-            <DevicesHome/>
+            <HomeDevices/>
             <FrequentAsk/>
             <HomeFooter/>
 

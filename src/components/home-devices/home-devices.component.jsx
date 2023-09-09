@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react"
-import { ContentDivStyled, Image, GifTV, GifDesktop} from "./devices-home.style"
+import { ContentDivStyled, Image, GifTV, GifDesktop} from "./home-devices.style"
 import tvImg from "../../imgs/devices/netflix-tv-root.png"
 import desktpImg from "../../imgs/devices/netflix-desktop-root.png"
 import infantilImg from "../../imgs/devices/netflix-infantil-root.png"
 import mobileImg from "../../imgs/devices/netflix-mobile-root.png"
-import { HomeSeparator } from "../../components/home-separator/home-separator.component"
+import { HomeSeparator } from "../home-separator/home-separator.component"
 //https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v 
 //https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices.m4v
 
-export function DevicesHome(){
+export function HomeDevices(){
         const [screenSize, setScreenSize] = useState({
           width: window.innerWidth,
           height: window.innerHeight,

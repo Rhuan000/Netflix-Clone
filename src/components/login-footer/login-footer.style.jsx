@@ -1,6 +1,6 @@
 import { styled } from "styled-components"
 
-export const LoginFooter = styled.footer`
+export const LoginStyledFooter = styled.footer`
     width:100%;
     background-color: rgb(0,0,0, 0.7);
     flex-grow: 1;

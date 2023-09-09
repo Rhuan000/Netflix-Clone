@@ -1,4 +1,4 @@
-import { LoginDiv, LoginContentDiv, LoginInput, LoginButton, LoginCheckboxDiv, LoginCheckbox, NewMemberDiv } from "./form-login.style"
+import { LoginDiv, LoginContentDiv, LoginInput, LoginButton, LoginCheckboxDiv, LoginCheckbox, NewMemberDiv } from "./login-form.style"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { useState, useContext } from "react"
@@ -11,7 +11,7 @@ const initialState = {
 }
 
 
-export function FormLogin(props){
+export function LoginForm(props){
 
     const [form, setForm] = useState(initialState)
     const navigate = useNavigate()

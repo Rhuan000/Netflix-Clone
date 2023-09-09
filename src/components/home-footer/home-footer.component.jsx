@@ -1,4 +1,4 @@
-import { HomeFooterStyled, NavFooterUl } from "./footer-home.style"
+import { HomeFooterStyled, NavFooterUl } from "./home-footer.style"
 import { LanguageSection } from "../language-section/language-section.component"
 
 export function HomeFooter(props){
