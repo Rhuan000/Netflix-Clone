@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import {FiArrowLeft} from "react-icons/fi"
-import { BrowserGeneralPerfilDiv, BrowserProfileDiv } from "../../routes/browser/browser.style";
 import {FiChevronRight, FiChevronLeft} from "react-icons/fi"
+import { SelectOptionGeneralPerfilDiv, SelectOptionDiv } from "../browser-select-option/browser-select-option.style";
 
 export const EditProfileChosenContainer = styled.div`
     background: linear-gradient(to bottom, #050505 0%, #141414 12%);
@@ -70,11 +70,11 @@ export const EditProfileImageCarousel = styled.div`
     
 
 `
-export const EditProfileGeneralPerfilDiv = styled(BrowserGeneralPerfilDiv)`
+export const EditProfileGeneralPerfilDiv = styled(SelectOptionGeneralPerfilDiv)`
     margin-right: 0.57rem;
     margin-left: 0.57rem;
 `
-export const EditProfileDiv = styled(BrowserProfileDiv)`
+export const EditProfileDiv = styled(SelectOptionDiv)`
     img {
         height: 135px;
         width: 135px;

@@ -1,76 +1,61 @@
-import { useEffect, useState, useContext } from "react"
+import { useContext, useEffect, useState } from "react"
+import { BrowserSelectOption } from "../../components/browser-select-option/browser-select-option.component"
+import { discoverMoviesPopular } from "../../utils/the-movie-database/the-movie-database.utils"
+import { Carousel } from "../../components/carousel/carousel.component"
+import { BrowserHeader } from "../../components/browser-header/browser-header.component"
 import { UserContext } from "../../contexts/user.context"
-import { useNavigate } from "react-router-dom"
-import { getUserData, getUserImage } from "../../utils/firebase/firestore.utils"
-import { BrowserAddIcon, BrowserAddPerfilDiv, BrowserButton, BrowserContainerDiv, BrowserContentDiv,  BrowserGeneralPerfilDiv,  BrowserProfileDiv, BrowserProfilesContentDiv } from "./browser.style"
-import { AddProfile } from "../../components/add-profile/add-profile.component"
+import { BrowserLoading } from "../../components/browser-loading/browser-loading.component"
 
 export function Browser(){
-    const [addPerfilOpen, setAddPerfilOpen] = useState(null)
-    const {userData, setUserData, usersImages, setUsersImages, currentUser, setCurrentUser} = useContext(UserContext)
-    const navigate = useNavigate()
-    
+    const usercontext = useContext(UserContext)
+    const [chosenProfile, setChosenProfile] = useState(null)
+    const [loading, setLoading] = useState(false)
+    const [request, setRequest] = useState({
+        images: [],
+        response: null
+    })
+
     useEffect(()=>{
-        const user = currentUser
-        if(user){
-            async function userData() {
-                const userDataResponse = await getUserData(user.uid)
-                const userImageResponse = await getUserImage()
-                console.log(userImageResponse)
-                setUsersImages(userImageResponse.profiles)
-                setUserData(userDataResponse)
+        if(chosenProfile){
+            async function waitMovie(){
+                console.log(await discoverMoviesPopular())
+                request.response = await discoverMoviesPopular()
+                for(let item of request.response){
+                    request.images.push(`https://image.tmdb.org/t/p/original${item.poster_path}`)
+                }
+                setRequest({...request})
             }
-            userData()
-        } else {
-            navigate("/login")
+            waitMovie()
+            
         }
+    }, [chosenProfile])
+    useEffect(()=>{
+        if(chosenProfile){
+            setLoading(true)
+            const timeoutId = setTimeout(() => {
+                setLoading(false);
+            }, 1500);
 
-    }, [])
+            return () => {
+                clearTimeout(timeoutId);
+            }
+        }
+    }, [chosenProfile])
 
-
-    function handleManageButton(){
-        navigate('/manageProfiles')
-    }
-
-    function handleAddProfileClick(){
-        setAddPerfilOpen(!addPerfilOpen)
-    }
-    
     return(
-        <BrowserContainerDiv>
-            {userData && 
-            <BrowserContentDiv>
-                <h1>Quem está assistindo?</h1>
-                <BrowserProfilesContentDiv>
-                    {userData.profiles.map(({profile}) => {
-                        console.log(profile.img)
-                        return (
-                           <BrowserGeneralPerfilDiv>
-                            <BrowserProfileDiv>
-                                <img src={usersImages[profile.img]} alt="profile image"/>
-                 
-                            </BrowserProfileDiv>
-                                <span>{profile.name}</span>
-                            </BrowserGeneralPerfilDiv>
-                           
-                        )
-                    })}
-                    {userData.profiles.length < 5 &&
-                        <BrowserGeneralPerfilDiv onClick={handleAddProfileClick}>
-                            <BrowserAddPerfilDiv >
-                               <BrowserAddIcon/>
-                            </BrowserAddPerfilDiv>
-                                <span>Adicionar perfil</span>
-                        </BrowserGeneralPerfilDiv>
-                       
-                    }
-                </BrowserProfilesContentDiv>    
-                <BrowserButton onClick={handleManageButton}>Gerenciar perfis</BrowserButton>
-            </BrowserContentDiv>
+        <>  
+            {loading && 
+                <BrowserLoading userImage={usercontext.usersImages[chosenProfile.profile.img]}/>
             }
-            {addPerfilOpen && 
-                <AddProfile  addPerfilOpen={handleAddProfileClick}/>
+            {!chosenProfile &&
+                <BrowserSelectOption setProfile = {setChosenProfile}/>
             }
-        </BrowserContainerDiv>
+            
+            {chosenProfile && !loading &&
+            <>  
+                <BrowserHeader chosenProfile={chosenProfile} setProfile={setChosenProfile}></BrowserHeader>
+            </>
+            }
+        </>
     )
 }
