@@ -5,7 +5,6 @@ import { SignPurple } from "../../components/sign-purple/sign-purple.component"
 import { HomeDevices } from "../../components/home-devices/home-devices.component"
 import { FrequentAsk } from "../../components/frequent-ask/frequent-ask.component"
 import { HomeFooter } from "../../components/home-footer/home-footer.component"
-import { HomeSeparator } from "../../components/home-separator/home-separator.component"
 
 
 export function Home(){

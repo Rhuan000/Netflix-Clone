@@ -10,22 +10,7 @@ export function BrowserSelectOption({setProfile}){
     const {userData, setUserData, usersImages, setUsersImages, currentUser} = useContext(UserContext)
     const navigate = useNavigate()
     
-    useEffect(()=>{
-        const user = currentUser
-        if(user){
-            async function userData() {
-                const userDataResponse = await getUserData(user.uid)
-                const userImageResponse = await getUserImage()
-                
-                setUsersImages(userImageResponse.profiles)
-                setUserData(userDataResponse)
-            }
-            userData()
-        } else {
-            navigate("/login")
-        }
 
-    }, [])
 
 
     function handleManageButton(){

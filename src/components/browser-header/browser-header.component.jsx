@@ -1,6 +1,7 @@
 import { useContext } from "react"
-import { Header, HeaderUl, Logo, NotificationIcon, SearchIcon, DownArrow, BrowserHeaderPerfilDiv, BrowserHeaderMenuHoverDiv, DownUp } from "./browser-header.style"
+import {TransferPerfilIcon, EditProfileIcon, AccountIcon, InformationsIcon , Header, HeaderUl, Logo, NotificationIcon, SearchIcon, DownArrow, BrowserHeaderPerfilDiv, BrowserHeaderMenuHoverDiv, DownUp } from "./browser-header.style"
 import { UserContext } from "../../contexts/user.context"
+import { Link } from "react-router-dom"
 
 export function BrowserHeader({chosenProfile, setProfile}){
     const usercontext = useContext(UserContext)
@@ -33,13 +34,31 @@ export function BrowserHeader({chosenProfile, setProfile}){
                                     return(
                                         <li onClick={handleClick} data-index={i} key={i}>
                                             <div style={{height: "30px", width: "30px", borderRadius: "5px",backgroundImage: `url(${usercontext.usersImages[profile.img]})`, backgroundSize: "cover"}}/>
-                                            <span>{profile.name}</span>    
+                                            <span>{profile.name}</span>                                                
                                         </li>
                                     )
                                 }
                             })}
-                            <li></li>
+                            <li style={{marginTop: "0.8rem"}}>
+                                <Link to={"/manageProfiles"} style={{width: "100%", display: "flex", alignItems: "center", color: "white", textDecoration: "none"}}>
+                                    <EditProfileIcon/>
+                                    <span>Gerenciar perfis</span>
+                                </Link>
+                            </li>
+                            <li style={{marginTop: "0.5rem"}}>
+                                <TransferPerfilIcon/>
+                                <span>Transferir Perfil</span>
+                            </li>
+                            <li style={{marginTop: "0.5rem"}}>
+                                <AccountIcon/>
+                                <span>Conta</span>
+                            </li>
+                            <li style={{marginTop: "0.5rem"}}>
+                                <InformationsIcon/>
+                                <span>Central de Ajuda</span>
+                            </li>
                         </ul>
+                        <button>Sair da Netflix</button>
                     </BrowserHeaderMenuHoverDiv>
                     <DownUp/>
                 </BrowserHeaderPerfilDiv>

@@ -1,5 +1,6 @@
 import { BrowserLoader } from "./browser-loading.style"
 import { BrowserContainerDiv } from "../../routes/browser/browser.style"
+
 export function BrowserLoading({userImage}){
     console.log(userImage)
     return(

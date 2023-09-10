@@ -15,22 +15,6 @@ export function ManageProfiles(){
     const {userData, setUserData, setUsersImages, currentUser, usersImages} = useContext(UserContext)
     const navigate = useNavigate()
     
-    useEffect(()=>{
-        const user = currentUser
-        if(user){
-            async function userData() {
-                const userDataResponse = await getUserData(user.uid)
-                const userImageResponse = await getUserImage()
-                setUsersImages(userImageResponse.profiles)
-                setUserData(userDataResponse)
-            }
-            userData()
-        } else {
-            navigate("/login")
-        }
-    }, [])
-    
-
 
     function handleConcluded(){
         navigate("/browser")
@@ -46,7 +30,7 @@ export function ManageProfiles(){
         
         setChosenProfile(userData.profiles[index])
         setNameValue(userData.profiles[index].profile.name)
-        //setUserIndex(index)
+        
     }
 
     return(

@@ -4,6 +4,11 @@ import { IoIosNotificationsOutline } from "react-icons/io"
 import { AiFillCaretDown } from "react-icons/ai"
 import { AiFillCaretUp } from "react-icons/ai"
 import {BiSearch} from "react-icons/bi"
+import { ReactComponent as EditProfileSVG } from "../../svgs/edit-profile.svg"
+import { ReactComponent as TransferPerfilSVG } from "../../svgs/transfer-perfil.svg"
+import { ReactComponent as AccountSVG } from "../../svgs/account.svg"
+import { ReactComponent as InformationsSVG } from "../../svgs/informations.svg"
+
 
 export const Header = styled.header`
     display: flex;
@@ -77,7 +82,7 @@ export const BrowserHeaderMenuHoverDiv = styled.div`
     display: flex;
     flex-direction: column;
     position: absolute;
-    height:  382px;
+    height:  auto;
     width: 218px;
     left: -295%;
     top: 160%;
@@ -104,6 +109,21 @@ export const BrowserHeaderMenuHoverDiv = styled.div`
         }
         span {
             margin-left: 0.5rem;
+        }
+    }
+    button {
+        width: 100%;
+        height: 100%;
+        min-height: 40px;
+        align-items: center;
+        border: 0; 
+        border-top: 1px solid rgb(100,100,100); 
+        color: white; 
+        background-color: black; 
+        margin-top: 1rem;
+        &:hover{
+            text-decoration: underline;
+            cursor: pointer;
         }
     }
 
@@ -135,4 +155,25 @@ export const DownUp = styled(AiFillCaretUp)`
         visibility: visible;
         opacity: 1;
     }
+`
+
+export const AccountIcon = styled(AccountSVG)`
+    height: 26px;
+    width: 26px;
+    color: #b3b3b3;
+`
+export const InformationsIcon = styled(InformationsSVG)`
+    height: 26px;
+    width: 26px;
+    color: #b3b3b3;
+`
+export const EditProfileIcon = styled(EditProfileSVG)`
+    height: 26px;
+    width: 26px;
+    color: #b3b3b3;
+`
+export const TransferPerfilIcon = styled(TransferPerfilSVG)`
+    height: 26px;
+    width: 26px;
+    color: #b3b3b3;
 `
