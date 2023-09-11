@@ -1,8 +1,7 @@
 export async function discoverMoviesPopular(){
-    const url = 'https://api.themoviedb.org/3/movie/popular';
+    const url = 'https://api.themoviedb.org/3/movie/popular?language=pt-BR';
     const options = {
         page: 1,
-        language: "pt-BR",
         method: 'GET',
         headers: {
         accept: 'application/json',
@@ -25,7 +24,7 @@ export async function discoverMoviesPopular(){
 }
 
 export async function discoverMoviesQuery(name){
-    const url = 'https://api.themoviedb.org/3/search/movie'
+    const url = 'https://api.themoviedb.org/3/search/movie?language=pt-BR'
     const options = {
         page: 1,
         language: "pt-BR",

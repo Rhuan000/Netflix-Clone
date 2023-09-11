@@ -11,10 +11,16 @@ import { ReactComponent as InformationsSVG } from "../../svgs/informations.svg"
 
 
 export const Header = styled.header`
+    z-index: 2;
     display: flex;
     color: white;
     justify-items: center;
     align-items: center;
+    position: sticky;
+    left: 0;
+    top: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 5%, rgba(0, 0, 0, 0));
+    transition: 0.7s;
 `
 export const HeaderUl = styled.ul`
     padding-top: 1.2rem;
@@ -89,6 +95,7 @@ export const BrowserHeaderMenuHoverDiv = styled.div`
     visibility: hidden;
     cursor: default;
     transition: 0.3s;
+    background-color: rgb(0,0,0, 0.8);
     border: 1px solid rgb(50,50,50);
     opacity: 0;
 

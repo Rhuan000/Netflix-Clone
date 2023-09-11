@@ -127,3 +127,28 @@ export const BrowserButton = styled.button`
         cursor: pointer;
     }
 `
+export const BrowserMainBackgroundDiv = styled.div`
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 105%;
+    max-height: 1000px;
+    width: 100vw;
+    max-width: 1800px;
+    position: absolute;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom, #141414a1 88%, #141414 100%), url(${props => props.background});
+`
+
+export const BrowserMovieBackgroundDiv = styled.div`            
+    color: white; 
+    min-height: 100%; 
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: 600;
+    background-image: linear-gradient(to bottom,  #141414 0%, #141414a1 5%, #141414 40%);
+`

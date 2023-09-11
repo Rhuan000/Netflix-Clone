@@ -1,18 +1,55 @@
 import { useContext } from "react"
+import { useState, useEffect } from "react"
 import {TransferPerfilIcon, EditProfileIcon, AccountIcon, InformationsIcon , Header, HeaderUl, Logo, NotificationIcon, SearchIcon, DownArrow, BrowserHeaderPerfilDiv, BrowserHeaderMenuHoverDiv, DownUp } from "./browser-header.style"
 import { UserContext } from "../../contexts/user.context"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { onAuthStateChangedListener } from "../../utils/firebase/firestore.utils"
 
 export function BrowserHeader({chosenProfile, setProfile}){
     const usercontext = useContext(UserContext)
+    const navigate = useNavigate()
+    const [backgroundColor, setBackgroundColor] = useState(null)
+
+    useEffect(() => {
+        function handleScroll() {
+            const currentScroll = window.scrollY; // Get the scroll position of the window
+            console.log(currentScroll);
+            if (currentScroll > 0) {
+              setBackgroundColor("black");
+              console.log("maior");
+            } else {
+              setBackgroundColor("transparent");
+              console.log("normal")
+            }
+        }
+
+
+       
+        window.addEventListener('scroll', handleScroll);
+        
+
+        // Clean up the event listener when the component unmounts
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
     
-    function handleClick(event){
+    function handleMenuClick(event){
         const index = event.currentTarget.getAttribute("data-index")
         setProfile(usercontext.userData.profiles[index])
     }
+    function handleSingOutClick(){
+        const unsubscribe = onAuthStateChangedListener((user) => {
+        if (user) {
+            usercontext.setCurrentUser(user);
+          }
+        });
+        navigate('/login')
+        return unsubscribe;
+    }
 
     return(
-        <Header>
+        <Header style={{backgroundColor: `${backgroundColor}`}}>
             <HeaderUl>
                 <li><Logo></Logo></li>
                 <li><span>Início</span></li>
@@ -29,10 +66,10 @@ export function BrowserHeader({chosenProfile, setProfile}){
                     <BrowserHeaderMenuHoverDiv>
                         <ul>
                             {usercontext.userData.profiles.map(({profile}, i) => {
-                                console.log(profile, chosenProfile)
+                               
                                 if(profile !== chosenProfile.profile){
                                     return(
-                                        <li onClick={handleClick} data-index={i} key={i}>
+                                        <li onClick={handleMenuClick} data-index={i} key={i}>
                                             <div style={{height: "30px", width: "30px", borderRadius: "5px",backgroundImage: `url(${usercontext.usersImages[profile.img]})`, backgroundSize: "cover"}}/>
                                             <span>{profile.name}</span>                                                
                                         </li>
@@ -58,7 +95,7 @@ export function BrowserHeader({chosenProfile, setProfile}){
                                 <span>Central de Ajuda</span>
                             </li>
                         </ul>
-                        <button>Sair da Netflix</button>
+                        <button onClick={handleSingOutClick}>Sair da Netflix</button>
                     </BrowserHeaderMenuHoverDiv>
                     <DownUp/>
                 </BrowserHeaderPerfilDiv>

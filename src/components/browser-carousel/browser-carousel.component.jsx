@@ -1,8 +1,8 @@
-import { useState, useRef } from "react"
-import { EditProfileImageCarousel, EditProfileLeftButtonCarousel, EditProfileRightButtonCarousel, EditProfileChevronLeft, EditProfileChevronRight, EditProfileGeneralPerfilDiv, EditProfileDiv } from "./carousel.style"
+import { useState, useEffect } from "react"
+import { EditProfileImageCarousel, EditProfileLeftButtonCarousel, EditProfileRightButtonCarousel, EditProfileChevronLeft, EditProfileChevronRight, EditProfileGeneralPerfilDiv, EditProfileDiv } from "./browser-carousel.style"
 
 //EXPECT A array of images as props. 
-export function Carousel(props){
+export function BrowserCarousel(props){
     const {images, afterSelectedItem} = props
     const [finalIndexRightButton, setFinalIndexRightButton] = useState(0)
     const [finalIndexLeftButton, setFinalIndexLeftButton] = useState(0)
@@ -114,7 +114,7 @@ export function Carousel(props){
     }
 
     return(
-        <EditProfileImageCarousel {...props}>
+        <EditProfileImageCarousel>
                 <EditProfileLeftButtonCarousel onClick={carouselLeftClick}>
                     <EditProfileChevronLeft/>
                 </EditProfileLeftButtonCarousel>
