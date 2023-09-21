@@ -19,10 +19,9 @@ export const Logo = styled(LogoSVG)`
 export const LoginBackground = styled(HomeBackground)`
     background-position-x: 0px;
     background-position-y:  0px;
-    background-size: 116em;
+    background-size: cover;
     padding-bottom: 0px;
     height: 900px;
-    
     display: flex;
     flex-direction: column;
     align-items: center;

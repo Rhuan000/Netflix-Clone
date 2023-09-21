@@ -8,12 +8,11 @@ const nfLoaderSpin = keyframes`
 
 export const BrowserLoader = styled.div`
     position: absolute;
-    top: 15%;
-    left: 45%;
-    margin: 37px 0 0 -25px;
-    width: 200px;
-    height: 200px;
-
+    top: center;
+    left: center;
+    width: 150px;
+    height: 150px;
+    align-self: center;
     &:after {
         content: "";
         background-image: url(https://assets.nflxext.com/en_us/pages/wiplayer/site-spinner.png);
@@ -21,7 +20,7 @@ export const BrowserLoader = styled.div`
         background-position: 50% 50%;
         background-size: 100%;
         position: absolute;
-        margin: -6px;
+        
         width: inherit;
         height: inherit;
         animation: ${nfLoaderSpin} .8s linear infinite, 1!important;

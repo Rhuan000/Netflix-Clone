@@ -3,7 +3,8 @@ import { MdAddCircle } from 'react-icons/md';
 
 export const  BrowserContainerDiv = styled.div`
     background: linear-gradient(to bottom, #050505 0%, #141414 12%);
-    height: 100vh;
+    min-height: 100vh;
+    width: 100vw;
     color: white;
     display: flex;
     flex-direction: column;
@@ -134,21 +135,27 @@ export const BrowserMainBackgroundDiv = styled.div`
     height: 105%;
     max-height: 1000px;
     width: 100vw;
-    max-width: 1800px;
     position: absolute;
-    align-self: center;
+
     display: flex;
     flex-direction: column;
-    background-image: linear-gradient(to bottom, #141414a1 88%, #141414 100%), url(${props => props.background});
+    background-image: linear-gradient(to bottom, #141414c1 88%, #141414 100%), url(${props => props.background});
 `
 
 export const BrowserMovieBackgroundDiv = styled.div`            
     color: white; 
-    min-height: 100%; 
-    width: 100%; 
+    box-sizing: border-box;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+        
     font-weight: 600;
     background-image: linear-gradient(to bottom,  #141414 0%, #141414a1 5%, #141414 40%);
+
+    h1 {
+        line-height: 50px;
+    }
+    p {
+        margin-top: 1rem;
+    }
 `

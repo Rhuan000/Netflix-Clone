@@ -21,8 +21,10 @@ export const Header = styled.header`
     top: 0;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 5%, rgba(0, 0, 0, 0));
     transition: 0.7s;
+    width: 100vw;
 `
 export const HeaderUl = styled.ul`
+
     padding-top: 1.2rem;
     padding-left: 3.5rem;
     padding-right: 3.5rem;

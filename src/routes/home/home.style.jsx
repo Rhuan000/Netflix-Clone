@@ -11,9 +11,10 @@ export const HomeBackground = styled.div`
     position: relative;
     
     color: white;
-    min-height: 700px;
-    height: 100vh;
-    width: 100%;
+    min-height: 800px;
+    height: 100%;
+    max-height: 1800px;
+    width: 100vw;
     min-width: 384px;
     background-image: url(${backgroundImage});
     
@@ -22,7 +23,7 @@ export const HomeBackground = styled.div`
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y:  -210px;
-    background-size: 120%;
+    background-size: cover;
     padding-bottom: 4rem;
 
 `;
@@ -30,15 +31,17 @@ export const HomeBackground = styled.div`
      
 export const HomeBackgroundShadow = styled.div `
     position: absolute;
-    min-height: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
     min-width: 100%;
+    max-height: 1800px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: rgb(0, 0, 0, 0.52);
     text-align: center;
-
     h1 {
         margin-top: 4rem;
         font-weight: 900;

@@ -13,12 +13,14 @@ export function Home(){
             <HomeBackground>
                 <HomeBackgroundShadow>
                     <HeaderHome/>
-                    <div >
-                        <h1>Filmes, séries e muito mais, sem limites</h1>
-                        <h2>Assista onde quiser. Cancele quando quiser.</h2>
+                    <div style={{marginBottom: "13rem"}}>
+                        <div>
+                            <h1>Filmes, séries e muito mais, sem limites</h1>
+                            <h2>Assista onde quiser. Cancele quando quiser.</h2>
                        
+                        </div>
+                        <EmailSignature/>
                     </div>
-                    <EmailSignature/>
                     <SignPurple/>
                 </HomeBackgroundShadow>
             </HomeBackground>

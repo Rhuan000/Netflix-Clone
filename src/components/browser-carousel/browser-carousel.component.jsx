@@ -1,14 +1,32 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { EditProfileImageCarousel, EditProfileLeftButtonCarousel, EditProfileRightButtonCarousel, EditProfileChevronLeft, EditProfileChevronRight, EditProfileGeneralPerfilDiv, EditProfileDiv } from "./browser-carousel.style"
 
 //EXPECT A array of images as props. 
 export function BrowserCarousel(props){
-    const {images, afterSelectedItem} = props
+    const {images} = props
     const [finalIndexRightButton, setFinalIndexRightButton] = useState(0)
     const [finalIndexLeftButton, setFinalIndexLeftButton] = useState(0)
+    const [zIndex, setZindex] = useState(null);
+    const [previousIndex, setPreviousIndex] = useState(null)
     const itemReference = useRef(false)
 
-    function carouselRightClick(event){
+    useEffect(()=>{
+        console.log(zIndex)
+        if(zIndex){
+            setTimeout(()=>{
+                itemReference.current.children[zIndex].style.zIndex = 1
+                console.log(itemReference.current.children[zIndex])
+                itemReference.current.children[zIndex].style.transform = "scale(1.3)"
+            })
+            
+            setPreviousIndex(zIndex)
+        } else if(previousIndex && !zIndex){
+            itemReference.current.children[previousIndex].style.zIndex = 0
+            itemReference.current.children[previousIndex].style.transform = "scale(1)"
+        }   
+    }, [zIndex])
+
+    function carouselRightClick(){
         const newRef = itemReference.current
         
         let highestP = 0
@@ -34,11 +52,11 @@ export function BrowserCarousel(props){
             
             console.log(acumulator)
             childrenPosition = parseFloat(newRef.children[acumulator].style.left);
-            if (childrenPosition <= -145){
+            if (childrenPosition <= -235){
                 
                
                 
-                highestP = highestP  + 145
+                highestP = highestP  + 235
                 newRef.children[acumulator].style.left = `${highestP}px`;
                 setFinalIndexRightButton(acumulator)
                 
@@ -89,7 +107,7 @@ export function BrowserCarousel(props){
                 
                
                 
-                lowestP = lowestP  - 145
+                lowestP = lowestP  - 235
                 newRef.children[acumulator].style.left = `${lowestP}px`;
                 setFinalIndexLeftButton(acumulator)
                 
@@ -107,12 +125,13 @@ export function BrowserCarousel(props){
         }, 1)
            
     }
-
-    async function selectedItem(event){
-        const index = event.currentTarget.getAttribute("data-index")
-        afterSelectedItem(index)
+    function handleHover(event){
+        setZindex(event.target.getAttribute("data-index"))
+        console.log(event.target)
     }
-
+    function handleMouseOut(){
+        setZindex(null)
+    }
     return(
         <EditProfileImageCarousel>
                 <EditProfileLeftButtonCarousel onClick={carouselLeftClick}>
@@ -121,12 +140,9 @@ export function BrowserCarousel(props){
                 <ul style={{display: "flex", position: "relative", width: "90vw", height: "180px"}} ref={itemReference}>
                 {images.map((image, i) => {
                     return (
-                        <li style={{listStyleType: "none",  left: `${(i * 145) - 60}px`, position: "absolute", transition:"2s"}} key={i} >        
-                       <EditProfileGeneralPerfilDiv  data-index={i} onClick={selectedItem}>
-                            <EditProfileDiv>
-                                <img src={image} alt="profile image"/>
-                            </EditProfileDiv>
-
+                        <li style={{listStyleType: "none",  left: `${(i * 235)}px`, position: "absolute", transition:"2s"}} key={i} >        
+                       <EditProfileGeneralPerfilDiv  >
+                            <EditProfileDiv image={image} data-index={i} onMouseOver={handleHover} onMouseLeave={handleMouseOut}/>
                         </EditProfileGeneralPerfilDiv>
                         </li>
                     )
